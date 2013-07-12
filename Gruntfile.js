@@ -323,9 +323,9 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
-        'rev',
-        'usemin'
+        'copy'
+//        'rev',
+//        'usemin'
     ]);
 
     grunt.registerTask('default', [

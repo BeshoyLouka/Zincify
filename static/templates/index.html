@@ -12,7 +12,9 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="{% static 'styles/main.css' %}">
-        <script src="../scripts/vendor/f7f27360.modernizr.js"></script>
+        <!-- build:js ../scripts/vendor/modernizr.js -->
+        <script src="../bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
     </head>
     <body>
         <div class="container">
@@ -44,6 +46,8 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
 
-        <script data-main="../scripts/d6bda312.main" src="../bower_components/requirejs/require.js"></script>
+        <!-- build:js ../scripts/main.js -->
+        <script data-main="../scripts/main" src="../bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
 </body>
 </html>

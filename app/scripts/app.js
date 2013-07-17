@@ -1,14 +1,10 @@
 (function() {
-  define(["jquery", "underscore", "backbone", "router"], function($, _, Backbone, router) {
-    var fireUp;
-    fireUp = Backbone.Views.extend(function() {
-      return {
-        initialize: function() {
-          return Backbone.history.start();
-        }
-      };
-    });
-    return fireUp;
+  define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
+    return {
+      initialize: function() {
+        return console.log('app started');
+      }
+    };
   });
 
 }).call(this);

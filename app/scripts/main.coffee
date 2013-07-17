@@ -6,8 +6,8 @@ require.config
 
     paths:
             jquery: '../bower_components/jquery/jquery'
-            backbone: '../bower_components/backbone-amd/backbone'
             underscore: '../bower_components/underscore-amd/underscore'
+            backbone: '../bower_components/backbone-amd/backbone'
             bootstrap: 'vendor/bootstrap'
 
     shim:
@@ -25,15 +25,18 @@ require.config
                     deps: ['jquery']
                     exports: 'jquery'
 
-require [
-        'app'
-        'router'
-], (app, router) ->
+##require [
+##        'jquery'
+##        'underscore'
+##        'backbone'
+##], ($,_,Backbone) ->
 
         ## Treat the jQuery ready function as the entry point to the application.
         ## Inside this function, kick-off all initialization, everything up to this
         ## point should be definitions.
-        ##$ ->
-        ##    Backbone.history.start pushState: true
+##        $ ->
+##            Backbone.history.start pushState: true
+require [
+        'app'
+    ], (app) ->
         app.initialize();
-

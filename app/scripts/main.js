@@ -2,8 +2,8 @@
   require.config({
     paths: {
       jquery: '../bower_components/jquery/jquery',
-      backbone: '../bower_components/backbone-amd/backbone',
       underscore: '../bower_components/underscore-amd/underscore',
+      backbone: '../bower_components/backbone-amd/backbone',
       bootstrap: 'vendor/bootstrap'
     },
     shim: {
@@ -21,7 +21,7 @@
     }
   });
 
-  require(['app', 'router'], function(app, router) {
+  require(['app'], function(app) {
     return app.initialize();
   });
 

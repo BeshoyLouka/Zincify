@@ -4,7 +4,7 @@ define [
         "backbone"
     ],
     ($,_,Backbone) ->
-        return {
-            initialize: -> 
-                console.log('app started');
-        };
+            class starter extends Backbone.View
+                initialize: ->
+                    console.log('app started...');
+            starterView = new starter

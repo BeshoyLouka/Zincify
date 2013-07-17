@@ -22,7 +22,11 @@
   });
 
   require(['app'], function(app) {
-    return app.initialize();
+    return $(function() {
+      return Backbone.history.start({
+        pushState: true
+      });
+    });
   });
 
 }).call(this);

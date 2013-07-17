@@ -25,18 +25,12 @@ require.config
                     deps: ['jquery']
                     exports: 'jquery'
 
-##require [
-##        'jquery'
-##        'underscore'
-##        'backbone'
-##], ($,_,Backbone) ->
 
-        ## Treat the jQuery ready function as the entry point to the application.
-        ## Inside this function, kick-off all initialization, everything up to this
-        ## point should be definitions.
-##        $ ->
-##            Backbone.history.start pushState: true
 require [
         'app'
     ], (app) ->
-        app.initialize();
+        ## Treat the jQuery ready function as the entry point to the application.
+        ## Inside this function, kick-off all initialization, everything up to this
+        ## point should be definitions.
+        $ ->
+            Backbone.history.start pushState: true

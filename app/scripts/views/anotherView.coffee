@@ -6,5 +6,5 @@ define [
     ($,_,Backbone) ->
             class starter extends Backbone.View
                 initialize: ->
-                    console.log('other view started...');
+                    console.log('another view started...');
             starterView = new starter

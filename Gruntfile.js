@@ -24,71 +24,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
-        watch: {
-            options: {
-                nospawn: true,
-                livereload: true
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
-            },
-            livereload: {
-                options: {
-                    livereload: LIVERELOAD_PORT
-                },
-                files: [
-                    '<%= yeoman.app %>/templates/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
-                ]
-            },
-            jst: {
-                files: [
-                    '<%= yeoman.app %>/scripts/templates/*.ejs'
-                ],
-                tasks: ['jst']
-            }
-        },
-        connect: {
-            options: {
-                port: 9000,
-                // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
-            },
-            livereload: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
-                        ];
-                    }
-                }
-            },
-            test: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test'),
-                            mountFolder(connect, yeomanConfig.app)
-                        ];
-                    }
-                }
-            },
-            dist: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, yeomanConfig.dist)
-                        ];
-                    }
-                }
-            }
-        },
         open: {
             server: {
                 path: 'http://localhost:<%= connect.options.port %>'
@@ -104,18 +39,15 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js',
+                '<%= yeoman.app %>/scripts/*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
-                'test/spec/{,*/}*.js'
+                'test/spec/*.js'
             ]
         },
-        mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://localhost:<%= connect.options.port %>/index.html']
-                }
-            }
+        coffeelint: {
+            options: {
+            },
+            app: ['<%= yeoman.app %>/scripts/**/*.coffee']
         },
         less: {
             development: {
@@ -234,26 +166,26 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'fonts',
-                        'bower_components',
-                        'images/{,*/}*.{webp,gif}'
+                        'fonts/*',
+                        'images/*'
                     ]
                 }]
+            },
+            bootstrap: {
+                files: [
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/bootstrap/less/*'], dest: '<%= yeoman.app %>/styles/bootstrap/', filter: 'isFile'} // includes files in path
+                ]
+            },
+            fontawesome: {
+                files: [
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/font-awesome/less/*'], dest: '<%= yeoman.app %>/styles/fontawesome/', filter: 'isFile'}, // includes files in path
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/font-awesome/font/*'], dest: '<%= yeoman.app %>/styles/font/', filter: 'isFile'} // includes files in path
+                ]
             }
         },
         bower: {
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
-            }
-        },
-        jst: {
-            options: {
-                amd: true
-            },
-            compile: {
-                files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
-                }
             }
         },
         rev: {
@@ -270,40 +202,14 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('createDefaultTemplate', function () {
-        grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
-    });
-
-    grunt.registerTask('server', function (target) {
-        if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
-        }
-
-        grunt.task.run([
-            'clean:server',
-            'coffee:dist',
-            'createDefaultTemplate',
-            'jst',
-            'connect:livereload',
-            'open',
-            'watch'
-        ]);
-    });
-
     grunt.registerTask('test', [
-        'clean:server',
         'coffee',
-        'createDefaultTemplate',
-        'jst',
-        'connect:test',
-        'mocha'
+        'less'
     ]);
 
-    grunt.registerTask('build', [
+    grunt.registerTask('default', [
         'clean:dist',
         'coffee',
-        'createDefaultTemplate',
-        'jst',
         'less',
         'useminPrepare',
         'requirejs',
@@ -312,13 +218,15 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy'
-//        'rev',
-//        'usemin'
+        'copy:dist'
     ]);
 
-    grunt.registerTask('default', [
-        'jshint',
-        'test'
+    grunt.registerTask('update', [
+        'copy:bootstrap',
+        'copy:fontawesome'
+    ]);
+
+    grunt.registerTask('build', [
+        ''
     ]);
 };

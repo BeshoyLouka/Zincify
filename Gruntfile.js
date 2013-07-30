@@ -123,7 +123,7 @@ module.exports = function (grunt) {
                  // paths: ["assets/css"]
                 },
                 files: {
-                    '<%= yeoman.dist %>/styles/main.css': '<%= yeoman.app %>/styles/main.less'
+                    '<%= yeoman.dist %>/styles/main.css': '<%= yeoman.app %>/styles/bootstrap.less'
                 }
             }
         },

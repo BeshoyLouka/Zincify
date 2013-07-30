@@ -3,7 +3,7 @@
 > Full stack boilerplate
 
 ## Getting Started
-requirments `Grunt ~0.4.0`
+requirments `Grunt ~0.4.0` & `bower`
 
 1. clone the repo
 2. run `pip install -r requirements.txt` to install all requirments
@@ -16,9 +16,7 @@ requirments `Grunt ~0.4.0`
   - RequireJS
   - Twitter Bootstrap 3
   - Font Awesome
-  - Django
-  - bower
-  - grunt
+  - Django 
 
 ## Grunt Tasks
 

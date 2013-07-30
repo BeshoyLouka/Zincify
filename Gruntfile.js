@@ -239,6 +239,16 @@ module.exports = function (grunt) {
                         'images/{,*/}*.{webp,gif}'
                     ]
                 }]
+            },
+            bootstrap: {
+                files: [
+                    {expand: true, src: ['<%= yeoman.app %>/bower_components/bootstrap/less/*'], dest: '<%= yeoman.app %>/styles/bootstrap/', filter: 'isFile'} // includes files in path
+                ]
+            },
+            fontawesome: {
+                files: [
+                    {expand: true, src: ['<%= yeoman.app %>/bower_components/fontawesome/less/*'], dest: '<%= yeoman.app %>/styles/fontawesome/', filter: 'isFile'} // includes files in path
+                ]
             }
         },
         bower: {
@@ -312,9 +322,14 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy'
+        'copy:dist'
 //        'rev',
 //        'usemin'
+    ]);
+
+    grunt.registerTask('update', [
+        'copy:bootstrap',
+        'copy:fontawesome'
     ]);
 
     grunt.registerTask('default', [

@@ -13,7 +13,7 @@
       }
 
       starter.prototype.initialize = function() {
-        return console.log('other view started...');
+        return console.log('another view started...');
       };
 
       return starter;

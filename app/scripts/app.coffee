@@ -2,9 +2,7 @@ define [
         "jquery"
         "underscore"
         "backbone"
+        "views/homeView"
+        "views/otherView"
     ],
-    ($,_,Backbone) ->
-            class starter extends Backbone.View
-                initialize: ->
-                    console.log('app started...');
-            starterView = new starter
+    ($,_,Backbone,home,other) ->

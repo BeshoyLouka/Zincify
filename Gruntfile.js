@@ -242,12 +242,13 @@ module.exports = function (grunt) {
             },
             bootstrap: {
                 files: [
-                    {expand: true, src: ['<%= yeoman.app %>/bower_components/bootstrap/less/*'], dest: '<%= yeoman.app %>/styles/bootstrap/', filter: 'isFile'} // includes files in path
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/bootstrap/less/*'], dest: '<%= yeoman.app %>/styles/bootstrap/', filter: 'isFile'} // includes files in path
                 ]
             },
             fontawesome: {
                 files: [
-                    {expand: true, src: ['<%= yeoman.app %>/bower_components/fontawesome/less/*'], dest: '<%= yeoman.app %>/styles/fontawesome/', filter: 'isFile'} // includes files in path
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/font-awesome/less/*'], dest: '<%= yeoman.app %>/styles/fontawesome/', filter: 'isFile'}, // includes files in path
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/font-awesome/font/*'], dest: '<%= yeoman.app %>/styles/font/', filter: 'isFile'} // includes files in path
                 ]
             }
         },

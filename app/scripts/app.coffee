@@ -3,6 +3,6 @@ define [
         "underscore"
         "backbone"
         "views/homeView"
-        "views/otherView"
+        "views/anotherView"
     ],
-    ($,_,Backbone,home,other) ->
+    ($,_,Backbone,home,another) ->

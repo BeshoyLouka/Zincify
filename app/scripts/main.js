@@ -4,7 +4,7 @@
       jquery: '../bower_components/jquery/jquery',
       underscore: '../bower_components/underscore-amd/underscore',
       backbone: '../bower_components/backbone-amd/backbone',
-      bootstrap: 'vendor/bootstrap'
+      bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min'
     },
     shim: {
       underscore: {

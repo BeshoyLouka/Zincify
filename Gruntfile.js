@@ -43,12 +43,6 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
                 ]
-            },
-            jst: {
-                files: [
-                    '<%= yeoman.app %>/scripts/templates/*.ejs'
-                ],
-                tasks: ['jst']
             }
         },
         connect: {
@@ -234,9 +228,8 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'fonts',
-                        'bower_components',
-                        'images/{,*/}*.{webp,gif}'
+                        'fonts/*',
+                        'images/*'
                     ]
                 }]
             },
@@ -257,16 +250,6 @@ module.exports = function (grunt) {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
         },
-        jst: {
-            options: {
-                amd: true
-            },
-            compile: {
-                files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
-                }
-            }
-        },
         rev: {
             dist: {
                 files: {
@@ -281,10 +264,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('createDefaultTemplate', function () {
-        grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
-    });
-
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
@@ -293,8 +272,6 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'coffee:dist',
-            'createDefaultTemplate',
-            'jst',
             'connect:livereload',
             'open',
             'watch'
@@ -302,19 +279,14 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', [
-        'clean:server',
         'coffee',
-        'createDefaultTemplate',
-        'jst',
-        'connect:test',
+        'less',
         'mocha'
     ]);
 
     grunt.registerTask('build', [
         'clean:dist',
         'coffee',
-        'createDefaultTemplate',
-        'jst',
         'less',
         'useminPrepare',
         'requirejs',
@@ -324,8 +296,6 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy:dist'
-//        'rev',
-//        'usemin'
     ]);
 
     grunt.registerTask('update', [

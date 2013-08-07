@@ -81,15 +81,20 @@ module.exports = function (grunt) {
             }
         },
         requirejs: {
-            dist: {
+            compile: {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
                     // `name` and `out` is set by grunt-usemin
-                    baseUrl: '<%= yeoman.app %>/scripts',
+                    name: "main",
+                    baseUrl: "<%= yeoman.app %>/js",
+                    out: "<%= yeoman.dist %>/js/main.js",
+                    mainConfigFile: "<%= yeoman.app %>/js/main.js",
+
+                    //baseUrl: '<%= yeoman.app %>/scripts',
                     optimize: 'none',
-                    paths: {
-                        'templates': '../../.tmp/scripts/templates'
-                    },
+                    //paths: {
+                    //    'templates': '../../.tmp/scripts/templates'
+                    //},
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,
@@ -169,7 +174,15 @@ module.exports = function (grunt) {
                         'fonts/*',
                         'images/*'
                     ]
-                }]
+                },
+                {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/requirejs/require.js'], dest: '<%= yeoman.dist %>/js/vendor/', filter: 'isFile'},
+                {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/modernizr/modernizr.js'], dest: '<%= yeoman.dist %>/js/vendor/', filter: 'isFile'}
+                ]
+            },
+           requirejs: {
+                files: [
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/requirejs/require.js'], dest: '<%= yeoman.dist %>/js/vendor/', filter: 'isFile'} // includes files in path
+                ]
             },
             bootstrap: {
                 files: [
@@ -213,11 +226,11 @@ module.exports = function (grunt) {
         'less',
         'useminPrepare',
         'requirejs',
-        'imagemin',
-        'htmlmin',
-        'concat',
-        'cssmin',
-        'uglify',
+        //'imagemin',
+        //'htmlmin',
+        //'concat',
+        //'cssmin',
+        //'uglify',
         'copy:dist'
     ]);
 

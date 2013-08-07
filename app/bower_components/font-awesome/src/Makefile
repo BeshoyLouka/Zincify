@@ -1,4 +1,3 @@
-PATH := ../node_modules/.bin:$(PATH)
 
 FA_ROOT_DIRECTORY = assets/font-awesome
 FA_LESS_DIRECTORY = assets/font-awesome/less

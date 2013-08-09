@@ -146,10 +146,6 @@ module.exports = function (grunt) {
         'less'
     ]);
 
-    grunt.registerTask('default', [
-        ''
-    ]);
-
     grunt.registerTask('update', [
         'copy:bootstrap',
         'copy:fontawesome'

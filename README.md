@@ -35,4 +35,4 @@ requirments `Grunt ~0.4.0` & `bower`
 update deps like you usually do through `bower` and then make sure to run `grunt update` to copy the right __less & font__ files to their proper directories inside __app/styles__
 
 #### Credits
-- Ispired by [yeoman/backbone-generator](https://github.com/yeoman/generator-backbone)
+- Inspired by [yeoman/backbone-generator](https://github.com/yeoman/generator-backbone)

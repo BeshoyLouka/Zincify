@@ -1,6 +1,6 @@
-# Full Backbone app on Django
+# Zincify
 
-> Full stack boilerplate
+> Full Backbone app on Django stack Boilerplate
 
 ## Getting Started
 requirments `Grunt ~0.4.0` & `bower`
@@ -29,7 +29,10 @@ requirments `Grunt ~0.4.0` & `bower`
 `grunt less`
 
 #### Build your __static__ directory from the __app__ directory
-`grunt`
+`grunt build`
 
-## Update bootstrap or font-awesome Packages through
-`bower` and then make sure to run `grunt update` to copy the right __less & font__ files to their proper directories inside __app/styles__
+#### Update bootstrap or font-awesome Packages through power of bower
+update deps like you usually do through `bower` and then make sure to run `grunt update` to copy the right __less & font__ files to their proper directories inside __app/styles__
+
+#### Credits
+- Inspired by [yeoman/backbone-generator](https://github.com/yeoman/generator-backbone)

@@ -1,7 +1,6 @@
 node_modules
 .DS_Store
 test/temp
-.sass-cache
 .tmp
 test/bower_components/
 venv

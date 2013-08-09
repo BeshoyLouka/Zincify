@@ -18,33 +18,55 @@
         <div class="container">
             <div class="navbar navbar-inverse">
                 <div class="container">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">Zincify</a>
-                  <div class="nav-collapse collapse navbar-inverse-collapse">
-                    <ul class="nav navbar-nav pull-right">
-                      <li><a href="#">About Us</a></li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">SEO</a></li>
-                          <li><a href="#">mobile</a></li>
-                          <li><a href="#">CMS</a></li>
-                          <li><a href="#">Hosting</a></li>
-                          <li><a href="#">Identify</a></li>
-                          <li><a href="#">Support</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Pricing</a></li>
-                      <li><a href="#">Contact Us</a></li>
-                      <li><a href="#">Login</a></li>
-                    </ul>
-                  </div><!-- /.nav-collapse -->
+                    <section class="row">
+                        <div class="jumbotron">
+                          <h1>Zincify</h1>
+                            <blockquote>
+                                <p>Full Backbone app on Django stack Boilerplate</p>
+                            </blockquote>
+
+                            <p><a href="https://github.com/BeshoyLouka/Zincify" class="btn btn-primary btn-lg">Go to Github Repo <i class="icon-github"></i></a></p>
+                            <h2>Getting Started</h2>
+
+                            <p>requirments <code>Grunt ~0.4.0</code> &amp; <code>bower</code></p>
+
+                            <ol>
+                                <li>clone the repo</li>
+                                <li>run <code>pip install -r requirements.txt</code> to install all requirments</li>
+                                <li>run <code>npm install</code> in the main directory where the package.json is.</li>
+                                <li>run <code>python manage.py syncdb</code> to sync the database</li>
+                                <li>run <code>python manage.py runserver</code> to fire up the Django server</li>
+                                <li>Congrats! you just got your server up stacked with the following:
+                                <ul><li>HTML5 Boilerplate</li>
+                                    <li>jQuery</li>
+                                    <li>Backbone.js</li>
+                                    <li>Underscore.js</li>
+                                    <li>RequireJS</li>
+                                    <li>Twitter Bootstrap 3</li>
+                                    <li>Font Awesome</li>
+                                    <li>Django </li></ul></li>
+                            </ol>
+
+                            <h2>Grunt Tasks</h2>
+
+                            <h4>Compile coffeescript files</h4>
+
+                            <p><code>grunt coffee</code></p>
+
+                            <h4>Compile the Less files</h4>
+
+                            <p><code>grunt less</code></p>
+
+                            <h4>Build your <strong>static</strong> directory from the <strong>app</strong> directory</h4>
+
+                            <p><code>grunt build</code></p>
+
+                            <h2>Update bootstrap or font-awesome Packages through power of bower</h2>
+
+                            <p>update deps like you usually do through <code>bower</code> and then make sure to run <code>grunt update</code> to copy the right <strong>less &amp; font</strong> files to their proper directories inside <strong>app/styles</strong></p>
+
+                        </div>
+                    </section>
                 </div><!-- /.container -->
               </div>
         </div>

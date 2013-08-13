@@ -5,3 +5,4 @@ test/temp
 test/bower_components/
 venv
 *.pyc
+ctags

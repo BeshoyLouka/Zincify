@@ -1,6 +1,6 @@
 # Zincify
 
-> Full Backbone app on Django stack Boilerplate
+> Backbone & Django Full stack Boilerplate
 
 ## Getting Started
 requirments `Grunt ~0.4.0` & `bower`

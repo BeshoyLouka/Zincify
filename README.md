@@ -3,7 +3,7 @@
 > Backbone & Django Full stack Boilerplate
 
 ## Getting Started
-requirments `Grunt ~0.4.0` & `bower`
+requirements `Grunt ~0.4.0` & `bower`
 
 1. clone the repo
 2. run `pip install -r requirements.txt` to install all requirments

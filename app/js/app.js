@@ -1,4 +1,9 @@
-(function() {
-  define(["jquery", "underscore", "backbone", "views/homeView", "views/anotherView"], function($, _, Backbone, home, another) {});
-
-}).call(this);
+define ([
+        "jquery",
+        "underscore",
+        "backbone",
+        "routes",
+        "fronts/homeView",
+        "Admin/webpages/views"
+    ], function ($,_,Backbone,routes,home,WebPagesViews){
+    }); 

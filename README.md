@@ -1,16 +1,14 @@
-# Zincify
+# Full Backbone app on Django
 
-> Backbone & Django Full stack Boilerplate
+> Full stack boilerplate
 
 ## Getting Started
 requirments `Grunt ~0.4.0` & `bower`
 
 1. clone the repo
 2. run `pip install -r requirements.txt` to install all requirments
-3. run `npm install` in the main directory where the package.json is.
-4. run `python manage.py syncdb` to sync the database
-5. run `python manage.py runserver` to fire up the Django server
-6. Congrats! you just got your server up stacked with the following:
+3. run `python manage.py runserver` to fire up the Django server
+4. Congrats! you just got your server up stacked with the following:
   - HTML5 Boilerplate
   - jQuery
   - Backbone.js
@@ -29,10 +27,7 @@ requirments `Grunt ~0.4.0` & `bower`
 `grunt less`
 
 #### Build your __static__ directory from the __app__ directory
-`grunt build`
+`grunt`
 
-#### Update bootstrap or font-awesome Packages through power of bower
-update deps like you usually do through `bower` and then make sure to run `grunt update` to copy the right __less & font__ files to their proper directories inside __app/styles__
-
-#### Credits
-- Inspired by [yeoman/backbone-generator](https://github.com/yeoman/generator-backbone)
+## Update bootstrap or font-awesome Packages through
+`bower` and then make sure to run `grunt update` to copy the right __less & font__ files to their proper directories inside __app/styles__

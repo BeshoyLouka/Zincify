@@ -25,7 +25,6 @@ requirements `Grunt ~0.4.0` & `bower`
   - `zincify` which is the main django app that contains the main url.py
   - `myAdmin` which is a sample backbone based app that communicates end-to-end through backbone-django synced Models and tastypie
   - `fronts` which meant to be the .com face of the project.
--------------------------------------------------------------
 - navigate to `localhost:8000` and you will see the homepage template running (configured through Django urls)
 - navigate to `localhost:8000/myAdmin` to see the first Route made by backbone.
 

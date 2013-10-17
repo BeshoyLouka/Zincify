@@ -9,6 +9,9 @@ TEMPLATE_DEBUG = DEBUG
 # Heroku settings
 
 # Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+DATABASES = {'default': dj_database_url.config(default='postgres://jugdikkqqfnkif:CLQu_JHb7ALIL3n8-gRmotATzk@ec2-54-227-238-21.compute-1.amazonaws.com:5432/ddrleks0vqlr8h')}
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()

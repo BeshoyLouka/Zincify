@@ -33,15 +33,15 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
+                '<%= yeoman.app %>/js/*.js',
+                '!<%= yeoman.app %>/js/vendor/*',
                 'test/spec/*.js'
             ]
         },
         coffeelint: {
             options: {
             },
-            app: ['<%= yeoman.app %>/scripts/**/*.coffee']
+            app: ['<%= yeoman.app %>/js/**/*.coffee']
         },
         less: {
             development: {
@@ -59,9 +59,9 @@ module.exports = function (grunt) {
                     // rather than compiling multiple files here you should
                     // require them into your main .coffee file
                     expand: true,
-                    cwd: '<%= yeoman.app %>/scripts',
+                    cwd: '<%= yeoman.app %>/js',
                     src: '**/*.coffee',
-                    dest: '<%= yeoman.app %>/scripts',
+                    dest: '<%= yeoman.app %>/js',
                     ext: '.js'
                 }]
             },
@@ -84,10 +84,10 @@ module.exports = function (grunt) {
                     out: '<%= yeoman.dist %>/js/main.js',
                     mainConfigFile: '<%= yeoman.app %>/js/main.js',
 
-                    //baseUrl: '<%= yeoman.app %>/scripts',
+                    //baseUrl: '<%= yeoman.app %>/js',
                     optimize: 'none',
                     //paths: {
-                    //    'templates': '../../.tmp/scripts/templates'
+                    //    'templates': '../../.tmp/js/templates'
                     //},
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
@@ -114,7 +114,8 @@ module.exports = function (grunt) {
                     ]
                 },
                 {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/requirejs/require.js'], dest: '<%= yeoman.dist %>/js/vendor/', filter: 'isFile'},
-                {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/modernizr/modernizr.js'], dest: '<%= yeoman.dist %>/js/vendor/', filter: 'isFile'}
+                {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/modernizr/modernizr.js'], dest: '<%= yeoman.dist %>/js/vendor/', filter: 'isFile'},
+                {expand: true, flatten: true, src: ['<%= yeoman.app %>/styles/main.css'], dest: '<%= yeoman.dist %>/styles/', filter: 'isFile'} 
                 ]
             },
             requirejs: {
@@ -124,7 +125,7 @@ module.exports = function (grunt) {
             },
             bootstrap: {
                 files: [
-                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/bootstrap/less/*'], dest: '<%= yeoman.app %>/styles/bootstrap/', filter: 'isFile'} // includes files in path
+                    {expand: true, flatten: true, src: ['<%= yeoman.app %>/bower_components/bootstrap/less/*'], dest: '<%= yeoman.app %>/styles/less/', filter: 'isFile'} // includes files in path
                 ]
             },
             fontawesome: {
@@ -136,26 +137,42 @@ module.exports = function (grunt) {
         },
         bower: {
             all: {
-                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
+                rjsConfig: '<%= yeoman.app %>/js/main.js'
+            }
+        },
+        recess: {
+            dist: {
+                options: {
+                    compile: true,
+                    compress: true
+                },
+                files: {
+                    '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/less/bootstrap.less']
+                }
             }
         }
     });
 
     grunt.registerTask('test', [
-        'coffee',
-        'less'
+        'coffee'
     ]);
 
     grunt.registerTask('update', [
-        'copy:bootstrap',
         'copy:fontawesome'
     ]);
 
-    grunt.registerTask('build', [
+    grunt.registerTask('static', [
+        'recess',
         'clean:dist',
-        'coffee',
-        'less',
+        'requirejs',
+        'copy:dist'
+    ]);
+
+    grunt.registerTask('build', [
+        'recess',
+        'clean:dist',
         'requirejs',
         'copy:dist'
     ]);
 };
+

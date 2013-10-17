@@ -8,7 +8,8 @@
     "backbone-amd": "~1.0.0",
     "underscore-amd": "~1.4.4",
     "modernizr": "~2.6.2",
-    "bootstrap": "~3.0.0-rc1"
+    "bootstrap": "~3.0.0",
+    "font-awesome": "3.2.1"
   },
   "devDependencies": {}
 }

@@ -46,3 +46,7 @@ update Font-awesome through `bower` and then make sure to run `grunt update` to 
 - Need better Documentation.
 - Add a Javascript testing framework
 - more...
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/BeshoyLouka/zincify/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
